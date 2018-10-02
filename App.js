@@ -1,31 +1,19 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Text, View } from "react-native";
+import { AppRegistry, View } from "react-native";
 
-export default class LotsOfStyles extends Component {
+export default class FixedDimensionBasics extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.red}>kirmizi</Text>
-        <Text style={styles.bigblue}>buyuk mavi</Text>
-        <Text style={[styles.bigblue, styles.red]}>
-          buyuk mavi ve buyuk kirmizi
-        </Text>
-        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+        <View
+          style={{ width: 100, height: 100, backgroundColor: "powderblue" }}
+        />
+        <View style={{ width: 200, height: 200, backgroundColor: "skyblue" }} />
+        <View
+          style={{ width: 400, height: 400, backgroundColor: "steelblue" }}
+        />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  bigblue: {
-    color: "blue",
-    fontWeight: "bold",
-    fontSize: 30
-  },
-  red: {
-    color: "red"
-  }
-});
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent("AwesomeProject", () => LotsOfStyles);
+AppRegistry.registerComponent("AwesomeProject", () => FixedDimensionBasics);
