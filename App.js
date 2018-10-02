@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import { AppRegistry, Image } from "react-native";
+import { AppRegistry, Text, View } from "react-native";
 
-export default class At extends Component {
+class Greeting extends Component {
   render() {
-    let pic = {
-      uri: "https://i.ytimg.com/vi/fgMEyhFIOtc/hqdefault.jpg"
-    };
-    return <Image source={pic} style={{ width: 480, height: 360 }} />;
+    return <Text>Hello {this.props.name}!</Text>;
   }
 }
-AppRegistry.registerComponent("AwesomeProject", () => At);
+
+export default class LotsOfGreetings extends Component {
+  render() {
+    return (
+      <View style={{ alignItems: "center" }}>
+        <Greeting name="Esma" />
+      </View>
+    );
+  }
+}
+AppRegistry.registerComponent("AwesomeProject", () => LotsOfGreetings);
