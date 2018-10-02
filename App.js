@@ -1,34 +1,31 @@
 import React, { Component } from "react";
-import { AppRegistry, Text, View } from "react-native";
+import { AppRegistry, StyleSheet, Text, View } from "react-native";
 
-class Blink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShowingText: true };
-
-    setInterval(() => {
-      this.setState(previousState => {
-        return { isShowingText: !previousState.isShowingText };
-      });
-    }, 1000);
-  }
-  render() {
-    let display = this.state.isShowingText ? this.props.text : "";
-    return <Text>{display}</Text>;
-  }
-}
-export default class BlinkApp extends Component {
+export default class LotsOfStyles extends Component {
   render() {
     return (
-      <View style={{ alignItems: "center" }}>
-        <Blink text=" love react native" />
-        <Blink text=" love react native" />
-        <Blink text=" love react native" />
-        <Blink text=" love react native" />
-        <Blink text=" love react native" />
+      <View>
+        <Text style={styles.red}>kirmizi</Text>
+        <Text style={styles.bigblue}>buyuk mavi</Text>
+        <Text style={[styles.bigblue, styles.red]}>
+          buyuk mavi ve buyuk kirmizi
+        </Text>
+        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
       </View>
     );
   }
 }
 
-AppRegistry.registerComponent("AwesomeProject", () => LotsOfGreetings);
+const styles = StyleSheet.create({
+  bigblue: {
+    color: "blue",
+    fontWeight: "bold",
+    fontSize: 30
+  },
+  red: {
+    color: "red"
+  }
+});
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent("AwesomeProject", () => LotsOfStyles);
