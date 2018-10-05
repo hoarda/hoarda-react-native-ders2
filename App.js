@@ -1,19 +1,36 @@
 import React, { Component } from "react";
 import { AppRegistry, View } from "react-native";
 
-export default class FixedDimensionBasics extends Component {
+export default class FixedDirectionBasics extends Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, flexDirection: "row" }}>
         <View
-          style={{ width: 100, height: 100, backgroundColor: "powderblue" }}
+          style={{
+            width: 50,
+            height: 50,
+            flex: 1,
+            backgroundColor: "powderblue"
+          }}
         />
-        <View style={{ width: 200, height: 200, backgroundColor: "skyblue" }} />
         <View
-          style={{ width: 400, height: 400, backgroundColor: "steelblue" }}
+          style={{
+            width: 50,
+            height: 50,
+            flex: 2,
+            backgroundColor: "skyblue"
+          }}
+        />
+        <View
+          style={{
+            width: 50,
+            height: 50,
+            flex: 3,
+            backgroundColor: "steelblue"
+          }}
         />
       </View>
     );
   }
 }
-AppRegistry.registerComponent("AwesomeProject", () => FixedDimensionBasics);
+AppRegistry.registerComponent("AwesomeProject", () => FixedDirectionBasics);
