@@ -1,41 +1,29 @@
 import React, { Component } from "react";
-import { AppRegistry, View } from "react-native";
+import { AppRegistry, Text, TextInput, View } from "react-native";
 
-export default class FixedDirectionBasics extends Component {
+export default class PizzaTranslator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: "" };
+  }
+
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "stretch"
-        }}
-      >
-        <View
-          style={{
-            width: 50,
-            height: 50,
-            flex: 1,
-            backgroundColor: "powderblue"
-          }}
+      <View style={{ padding: 10 }}>
+        <TextInput
+          style={{ height: 40 }}
+          placeholder="Çeviri yapılacak metni giriniz!"
+          onChangeText={text => this.setState({ text })}
         />
-        <View
-          style={{
-            height: 50,
-            flex: 2,
-            backgroundColor: "skyblue"
-          }}
-        />
-        <View
-          style={{
-            height: 100,
-            flex: 3,
-            backgroundColor: "steelblue"
-          }}
-        />
+        <Text style={{ padding: 10, fontSize: 42 }}>
+          {this.state.text
+            .split(" ")
+            .map(word => word && "🍕")
+            .join(" ")}
+        </Text>
       </View>
     );
   }
 }
-AppRegistry.registerComponent("AwesomeProject", () => FixedDirectionBasics);
+
+AppRegistry.registerComponent("AwesomeProject", () => PizzaTranslator);
