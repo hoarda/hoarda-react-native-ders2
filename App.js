@@ -1,184 +1,37 @@
 import React, { Component } from "react";
-import { AppRegistry, ScrollView, Image, Text } from "react-native";
+import { AppRegistry, FlatList, StyleSheet, Text, View } from "react-native";
 
-export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
+export default class FlatListBasics extends Component {
   render() {
     return (
-      <ScrollView>
-        <Text style={{ fontSize: 55 }}>Ekrani Kaydırın</Text>
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
+      <View style={StyleSheet.container}>
+        <FlatList
+          data={[
+            { key: "Ferdi" },
+            { key: "Nuri" },
+            { key: "Eray" },
+            { key: "Oktay" },
+            { key: "Ersel" },
+            { key: "Harun" },
+            { key: "Enes" }
+          ]}
+          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
         />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Text style={{ fontSize: 96 }}>Sevdin mi hınzır</Text>
-
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 50,
-            height: 50
-          }}
-        />
-        <Text style={{ fontSize: 96 }}>Devam et</Text>
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Text style={{ fontSize: 96 }}>iyi mi??</Text>
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Text style={{ fontSize: 96 }}>;)</Text>
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Image
-          source={{
-            uri: "https://facebook.github.io/react-native/img/favicon.png",
-            width: 64,
-            height: 64
-          }}
-        />
-        <Text style={{ fontSize: 80 }}>React Native</Text>
-      </ScrollView>
+      </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44
+  }
+});
 
-AppRegistry.registerComponent(
-  "AwesomeProject",
-  () => IScrolledDownAndWhatHappenedNextShockedMe
-);
+// skip this line if using Create React Native App
+AppRegistry.registerComponent("AwesomeProject", () => FlatListBasics);
