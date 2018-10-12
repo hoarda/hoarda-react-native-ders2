@@ -1,30 +1,51 @@
 import React, { Component } from "react";
-import { AppRegistry, FlatList, StyleSheet, Text, View } from "react-native";
+import { AppRegistry, SectionList, StyleSheet, Text, View } from "react-native";
 
-export default class FlatListBasics extends Component {
+export default class SectionListBasics extends Component {
   render() {
     return (
       <View style={StyleSheet.container}>
-        <FlatList
-          data={[
-            { key: "Ferdi" },
-            { key: "Nuri" },
-            { key: "Eray" },
-            { key: "Oktay" },
-            { key: "Ersel" },
-            { key: "Harun" },
-            { key: "Enes" }
+        <SectionList
+          sections={[
+            { title: "F", data: ["Ferdi"] },
+            {
+              title: "E",
+              data: [
+                "Eray",
+                "Enes",
+                "Ersel",
+                "Emirhan",
+                "Esma",
+                "Eren",
+                "Ercan  "
+              ]
+            }
           ]}
-          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+          renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({ section }) => (
+            <Text style={styles.sectionHeader}>{section.title}</Text>
+          )}
+          keyExtractor={(item, index) => index}
+        />
         />
       </View>
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 22
+  },
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: "bold",
+    backgroundColor: "rgba(247,247,247,1.0)"
   },
   item: {
     padding: 10,
@@ -33,5 +54,4 @@ const styles = StyleSheet.create({
   }
 });
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent("AwesomeProject", () => FlatListBasics);
+AppRegistry.registerComponent("AwesomeProject", () => SectionListBasics);
